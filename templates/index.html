@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Study Assistant Chatbot</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+        .chat-container {
+            background: white;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            padding: 24px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c2c54;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+        .message-box {
+            background: #f0f0f5;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 20px;
+        }
+        .user-msg, .bot-msg {
+            padding: 10px 14px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            max-width: 85%;
+            word-wrap: break-word;
+        }
+        .user-msg {
+            background: #4a69bd;
+            color: white;
+            margin-left: auto;
+            text-align: right;
+        }
+        .bot-msg {
+            background: #e8e8f0;
+            color: #333;
+        }
+        form {
+            display: flex;
+            gap: 8px;
+        }
+        input[type="text"] {
+            flex: 1;
+            padding: 12px 14px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-size: 15px;
+        }
+        button {
+            background: #4a69bd;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #3c5aa6;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <h1>🤖 Study Assistant Bot</h1>
+
+        {% if reply %}
+        <div class="message-box">
+            <div class="user-msg">{{ user_message }}</div>
+            <div class="bot-msg">{{ reply }}</div>
+        </div>
+        {% endif %}
+
+        <form method="POST" action="/">
+            <input type="text" name="message" placeholder="Ask me anything about your studies..." required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</body>
+</html>
